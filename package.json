@@ -9,7 +9,7 @@
     
   },
   "author": "Hashmat Ibrahimi",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.150.0",
     "axios": "^0.27.2",
@@ -27,3 +27,4 @@
     "uuid": "^8.3.2"
   }
 }
+
