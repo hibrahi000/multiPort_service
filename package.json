@@ -1,0 +1,11 @@
+{
+  "name": "multiport_service",
+  "version": "1.0.0",
+  "description": "backend service to multiple ui services for portfolio apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hashmat Ibrahimi",
+  "license": "ISC"
+}
