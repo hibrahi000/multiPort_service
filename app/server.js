@@ -5,6 +5,7 @@ import "../loadEnv.js";
 
 //* File Imports
 import userRoutes from "./routes/user.routes.js";
+import { getUsers, getUserByUsername } from "./db/users.db.js";
 
 //+ Initialization
 const app = express();

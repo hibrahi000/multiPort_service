@@ -1,25 +1,15 @@
-import {MongoClient} from 'mongodb';
-
-const Db = process.env.mongoURI;
-
-const client = new MongoClient(Db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-let userDb = undefined;
+// import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
 
 export const connectToServer = (callback) => {
-  client.connect(function(err, db) {
-    // Verify we got a good "db" object
-    if (db) {
-      userDb = db.db('user');
-      console.log('Successfully connected to MongoDB...');
-    }
-    return callback(err);
+  mongoose.connect(process.env.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
-};
 
-export const getUserDb = () => {
-  return userDb;
+  const db = mongoose.connection;
+  db.on("error", console.error.bind(console, "MongoDB connection error:"));
+  db.once("open", function callback() {
+    console.log("Connected to mongo server...");
+  });
 };
