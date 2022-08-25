@@ -8,6 +8,7 @@ const UserSchema = mongoose.Schema(
     image: { type: String },
     hash: { type: String },
     salt: { type: String },
+    admin: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
