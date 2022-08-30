@@ -1,23 +1,16 @@
 import express from "express";
-
-// userRoutes is an instance of the express router.
-// We use it to define our routes.
-// The router will be added and control /user path requests.
+import { validateUser } from "../middleware/auth.middleware.js";
+import { getUser } from "../middleware/user.middleware.js";
 const userRoutes = express.Router();
-
-// This section will help you get a list of all the users.
-userRoutes.route("/user").get();
-
-// This section will help you get a single user by id
-userRoutes.route("/user/:id").get();
-
-// This section will help you create a new user.
-userRoutes.route("/user/add").post();
-
-// This section will help you update a user by id.
-userRoutes.route("/user/:id").post();
-
-// This section will help you delete a user
-userRoutes.route("/:id").delete();
+//get current user
+userRoutes.get("/me", validateUser, getUser);
+//get list of users
+userRoutes.get("/users");
+//create user
+userRoutes.post("/create_user");
+//update user by id
+userRoutes.put("/update_user");
+//delete user by id
+userRoutes.delete("/delete__user");
 
 export default userRoutes;
