@@ -1,23 +1,14 @@
-import express from "express";
+import app from "../app";
 
-// userRoutes is an instance of the express router.
-// We use it to define our routes.
-// The router will be added and control /user path requests.
-const userRoutes = express.Router();
-
-// This section will help you get a list of all the users.
-userRoutes.route("/user").get();
-
-// This section will help you get a single user by id
-userRoutes.route("/user/:id").get();
-
-// This section will help you create a new user.
-userRoutes.route("/user/add").post();
-
-// This section will help you update a user by id.
-userRoutes.route("/user/:id").post();
-
-// This section will help you delete a user
-userRoutes.route("/:id").delete();
+//get current user
+app.get("/user/me");
+//get list of users
+app.get("/user/users");
+//create user
+app.post("/user/create_user");
+//update user by id
+app.put("/user/update_user");
+//delete user by id
+app.delete("/user/delete__user");
 
 export default userRoutes;
