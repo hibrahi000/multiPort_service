@@ -2,14 +2,15 @@ import { userValid } from "../controller/user.controller.js";
 
 export const validateUser = (req, res, next) => {
   try {
-    userValid
+    console.log("validating ");
+    userValid(req)
       ? next()
       : res.status(401).json({
-          error: new Error("User not authorized"),
+          error: "User not authorized",
         });
   } catch (err) {
-    return res.status(500).json({
-      error: new Error(err.message),
+    return res.status(400).json({
+      error: err.message,
     });
   }
 };

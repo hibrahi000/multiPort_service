@@ -11,12 +11,11 @@ export const userValid = (req) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, process.env.jwtToken);
-    const userId = decodedToken.userId;
-    return req.body.userId && req.body.userId !== userId;
+    const userId = decodedToken._id;
+    return req.body.user._id && req.body.user._id === userId;
   } catch {
-    return res.status(401).json({
-      error: new Error("Invalid request!"),
-    });
+    console.log("error here");
+    throw new Error("Invalid request");
   }
 };
 
