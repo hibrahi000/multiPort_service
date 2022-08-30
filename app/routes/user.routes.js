@@ -1,14 +1,16 @@
-import app from "../app";
-
+import express from "express";
+import { validateUser } from "../middleware/auth.middleware.js";
+import { getUser } from "../middleware/user.middleware.js";
+const userRoutes = express.Router();
 //get current user
-app.get("/user/me");
+userRoutes.get("/me", validateUser, getUser);
 //get list of users
-app.get("/user/users");
+userRoutes.get("/users");
 //create user
-app.post("/user/create_user");
+userRoutes.post("/create_user");
 //update user by id
-app.put("/user/update_user");
+userRoutes.put("/update_user");
 //delete user by id
-app.delete("/user/delete__user");
+userRoutes.delete("/delete__user");
 
 export default userRoutes;
