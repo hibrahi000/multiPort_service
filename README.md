@@ -76,10 +76,8 @@ Of course there are many approaches to a problem/build but I choose this method.
 
 - [![Mongoose][mongoose]][mongoose-url]
 
-- [![Axios][axios]][axios-url]
-
 - [![Mongodb][mongodb]][mongodb-url]
-
+  
 - [![Jest][jest.js]][jest-url]
 
 - [![Eslint][eslint]][eslint-url]
